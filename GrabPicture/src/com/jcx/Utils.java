@@ -1,7 +1,11 @@
-package westos;
+package com.jcx;
 
 import java.sql.*;
 
+/**
+ * 数据库连接工具类
+ * @author J丶晨星
+ */
 public class Utils {
     static final String URL = "jdbc:mysql://localhost:3306/eshop?serverTimezone=GMT%2B8&useSSL=false" +
             "&useServerPrepStmts=true&cachePrepStmts=true&rewriteBatchedStatements=true" +

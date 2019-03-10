@@ -1,4 +1,4 @@
-package westos;
+package com.jcx;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -11,8 +11,7 @@ import java.util.ArrayList;
 
 /**
  * 抓取照片
- *
- * @author 姜晨星
+ * @author J丶晨星
  */
 public class GrabPicture {
     public static void main(String[] args) {
@@ -29,11 +28,12 @@ public class GrabPicture {
             stmt = conn.prepareStatement("select img from product");
             //执行sql语句
             rs = stmt.executeQuery();
-            //把获取到的数据放到imgs集合中
+            //把从数据库获取到的img链接放到imgs集合中
             while (rs.next()) {
                 imgs.add(rs.getString("img"));
             }
         } catch (Exception e) {
+            //抛出一个运行时异常
             throw new RuntimeException(e);
         } finally {
             //关闭
@@ -73,8 +73,8 @@ public class GrabPicture {
                     fos.close();
                 }
             } catch (Exception e) {
+                //如果链接错误打印异常并跳出此次循环，执行下一次
                 e.printStackTrace();
-                //如果链接错误跳出此次循环，执行下一次
                 continue;
             }
         }
